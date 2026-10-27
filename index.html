@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#59613a">
+  <meta name="description" content="AGAM Yoga & Wellness. A personal yoga practice for movement, balance, and wellbeing.">
+  <title>AGAM Yoga & Wellness | Your practice, your pace</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --olive: #59613a;
+      --olive-deep: #424a2b;
+      --olive-soft: #879064;
+      --cream: #f5f0df;
+      --paper: #fbf9f1;
+      --gold: #d3c28d;
+      --rust: #b86f50;
+      --ink: #26291e;
+      --muted: #6d705f;
+      --line: #dedacb;
+      --serif: "Cormorant Garamond", Georgia, serif;
+      --sans: "DM Sans", "Trebuchet MS", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); -webkit-font-smoothing: antialiased; }
+    body, button, a { -webkit-tap-highlight-color: transparent; }
+    button, a { color: inherit; }
+    img { max-width: 100%; }
+    .site-header { position: relative; z-index: 3; background: var(--olive); color: var(--cream); }
+    .header-inner { width: min(1240px, calc(100% - 72px)); min-height: 88px; margin: auto; display: flex; align-items: center; justify-content: space-between; gap: 30px; }
+    .brand { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; }
+    .brand img { width: 43px; height: 43px; object-fit: cover; object-position: center 19%; border-radius: 50%; }
+    .brand-copy { display: grid; gap: 2px; }
+    .brand-name { font-family: var(--serif); font-size: 23px; font-weight: 600; letter-spacing: .08em; line-height: 1; }
+    .brand-caption { color: var(--gold); font-size: 9px; font-weight: 600; letter-spacing: .19em; text-transform: uppercase; }
+    .nav { display: flex; align-items: center; gap: 31px; }
+    .nav a { color: var(--cream); font-size: 11px; font-weight: 600; text-decoration: none; }
+    .nav a:not(.nav-contact):hover { color: var(--gold); }
+    .nav .nav-contact { min-height: 42px; padding: 0 16px; display: inline-flex; align-items: center; gap: 12px; border: 1px solid rgba(245,240,223,.52); transition: color .2s, background .2s; }
+    .nav .nav-contact:hover { background: var(--cream); color: var(--olive-deep); }
+
+    .hero { overflow: hidden; background: var(--olive); color: var(--cream); }
+    .hero-inner { width: min(1240px, calc(100% - 72px)); min-height: 635px; margin: auto; padding: 62px 0 78px; display: grid; grid-template-columns: 1fr .83fr; align-items: center; gap: clamp(42px, 8vw, 115px); }
+    .hero-copy { position: relative; z-index: 1; padding-bottom: 12px; }
+    .eyebrow { display: flex; align-items: center; gap: 10px; color: var(--gold); font-size: 10px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+    .eyebrow::before { width: 24px; height: 1px; background: var(--rust); content: ""; }
+    h1, h2, h3, p { margin-top: 0; }
+    .hero h1 { max-width: 670px; margin: 23px 0 20px; font-family: var(--serif); font-size: clamp(62px, 7.5vw, 98px); font-weight: 400; letter-spacing: 0; line-height: .91; }
+    .hero h1 em { color: var(--gold); font-weight: 500; }
+    .hero-intro { max-width: 480px; margin-bottom: 29px; color: #e0dfd0; font-size: 14px; line-height: 1.9; }
+    .hero-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 20px; }
+    .button { min-height: 49px; padding: 0 19px; display: inline-flex; align-items: center; justify-content: center; gap: 17px; background: var(--gold); color: var(--olive-deep); font-size: 11px; font-weight: 700; text-decoration: none; transition: background .2s, transform .2s; }
+    .button:hover { background: var(--cream); transform: translateY(-2px); }
+    .button .arrow { font-size: 17px; line-height: 1; }
+    .hero-secondary { color: var(--cream); font-size: 11px; font-weight: 600; text-decoration: underline; text-decoration-color: var(--gold); text-underline-offset: 5px; }
+    .hero-promise { margin: 35px 0 0; color: #d5d4c4; font-family: var(--serif); font-size: 20px; font-style: italic; }
+    .hero-art { position: relative; width: min(100%, 430px); justify-self: end; padding: 11px; border: 1px solid rgba(211,194,141,.75); }
+    .hero-art::before { position: absolute; top: -19px; right: -19px; width: 72px; height: 72px; border-top: 1px solid var(--rust); border-right: 1px solid var(--rust); content: ""; }
+    .hero-art img { width: 100%; aspect-ratio: 4 / 5; display: block; object-fit: cover; object-position: center; background: var(--olive-deep); }
+    .hero-art figcaption { position: absolute; right: -20px; bottom: 36px; padding: 12px 16px; background: var(--rust); color: #fff8e9; font-family: var(--serif); font-size: 19px; font-style: italic; }
+    .scroll-cue { position: absolute; left: 50%; bottom: 0; width: 1px; height: 45px; background: var(--gold); opacity: .7; }
+    .hero-inner { position: relative; }
+
+    .manifesto { padding: 18px 24px; background: var(--cream); color: var(--olive); text-align: center; }
+    .manifesto p { margin: 0; font-family: var(--serif); font-size: 23px; font-style: italic; }
+    .manifesto span { padding: 0 12px; color: var(--rust); }
+    .section { width: min(1120px, calc(100% - 72px)); margin: 0 auto; }
+    .intro-section { padding: 112px 0 105px; display: grid; grid-template-columns: .78fr 1.22fr; align-items: center; gap: 90px; }
+    .intro-image { position: relative; max-width: 410px; }
+    .intro-image img { width: 100%; display: block; aspect-ratio: 4 / 5; object-fit: cover; }
+    .intro-image::after { position: absolute; z-index: -1; top: 16px; left: 16px; width: 100%; height: 100%; border: 1px solid var(--gold); content: ""; }
+    .intro-copy h2, .section-title { margin: 17px 0 16px; font-family: var(--serif); font-size: clamp(43px, 5vw, 63px); font-weight: 500; letter-spacing: 0; line-height: .99; }
+    .intro-copy > p { max-width: 540px; margin-bottom: 27px; color: var(--muted); font-size: 13px; line-height: 1.9; }
+    .principles { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); }
+    .principle { padding: 16px 15px 0 0; }
+    .principle + .principle { padding-left: 17px; border-left: 1px solid var(--line); }
+    .principle strong { display: block; margin-bottom: 4px; color: var(--olive); font-size: 9px; letter-spacing: .12em; text-transform: uppercase; }
+    .principle span { color: var(--muted); font-size: 10px; line-height: 1.5; }
+
+    .practice-section { padding: 95px 0 103px; background: #ece9dc; }
+    .practice-inner { width: min(1120px, calc(100% - 72px)); margin: auto; }
+    .practice-heading { display: flex; align-items: end; justify-content: space-between; gap: 32px; margin-bottom: 34px; }
+    .practice-heading .section-title { margin-bottom: 0; }
+    .practice-heading > p { max-width: 310px; margin-bottom: 5px; color: var(--muted); font-size: 12px; line-height: 1.8; }
+    .practice-layout { display: grid; grid-template-columns: 1fr .72fr; align-items: stretch; background: var(--paper); }
+    .practice-info { padding: clamp(26px, 5vw, 56px); }
+    .tab-list { display: flex; flex-wrap: wrap; gap: 6px; border-bottom: 1px solid var(--line); }
+    .service-tab { position: relative; min-height: 45px; padding: 0 13px; border: 0; background: transparent; color: var(--muted); cursor: pointer; font-family: var(--sans); font-size: 11px; font-weight: 600; }
+    .service-tab::after { position: absolute; right: 12px; bottom: -1px; left: 12px; height: 2px; background: transparent; content: ""; }
+    .service-tab[aria-selected="true"] { color: var(--olive); }
+    .service-tab[aria-selected="true"]::after { background: var(--rust); }
+    .service-panel { min-height: 230px; padding: 26px 0 4px; }
+    .service-panel[hidden] { display: none; }
+    .service-kicker { margin-bottom: 7px; color: var(--rust); font-size: 9px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+    .service-panel h3 { margin-bottom: 10px; font-family: var(--serif); font-size: 36px; font-weight: 500; }
+    .service-panel p { max-width: 480px; margin-bottom: 15px; color: var(--muted); font-size: 12px; line-height: 1.8; }
+    .service-detail { color: var(--olive); font-size: 11px; font-weight: 700; }
+    .practice-book { margin-top: 17px; }
+    .practice-poster { min-height: 390px; padding: 17px; display: grid; place-items: center; background: var(--olive); }
+    .practice-poster img { width: 100%; height: 100%; max-height: 460px; display: block; object-fit: contain; }
+
+    .story-section { padding: 110px 0 112px; }
+    .story-heading { display: grid; grid-template-columns: 1fr .7fr; align-items: end; gap: 50px; margin-bottom: 35px; }
+    .story-heading .section-title { max-width: 600px; margin-bottom: 0; }
+    .story-heading > p { margin-bottom: 4px; color: var(--muted); font-size: 12px; line-height: 1.8; }
+    .poster-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; }
+    .poster-card { min-width: 0; padding: 0; border: 0; background: transparent; cursor: zoom-in; text-align: left; }
+    .poster-card img { width: 100%; aspect-ratio: 4 / 5; display: block; object-fit: cover; background: var(--olive); transition: transform .35s, box-shadow .35s; }
+    .poster-card:hover img, .poster-card:focus-visible img { transform: translateY(-5px); box-shadow: 0 14px 28px rgba(44,48,31,.18); }
+    .poster-card span { display: block; padding-top: 11px; color: var(--olive); font-family: var(--serif); font-size: 20px; }
+    .poster-card small { display: block; padding-top: 3px; color: var(--muted); font-size: 9px; letter-spacing: .08em; text-transform: uppercase; }
+
+    .contact-section { overflow: hidden; background: var(--olive-deep); color: var(--cream); }
+    .contact-inner { width: min(1120px, calc(100% - 72px)); min-height: 375px; margin: auto; padding: 78px 0; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 45px; }
+    .contact-inner h2 { max-width: 650px; margin: 16px 0 12px; font-family: var(--serif); font-size: clamp(44px, 6vw, 70px); font-weight: 400; line-height: .98; }
+    .contact-inner p { margin: 0; color: #d7d4c3; font-size: 12px; line-height: 1.8; }
+    .contact-actions { display: grid; gap: 11px; min-width: 195px; }
+    .contact-actions .button { justify-content: space-between; }
+    .instagram-link { padding: 13px 15px; border: 1px solid rgba(245,240,223,.38); color: var(--cream); font-size: 10px; font-weight: 600; text-align: center; text-decoration: none; }
+    .instagram-link:hover { border-color: var(--gold); color: var(--gold); }
+    footer { background: var(--olive-deep); color: #d6d3c1; }
+    .footer-inner { width: min(1120px, calc(100% - 72px)); min-height: 77px; margin: auto; display: flex; align-items: center; justify-content: space-between; gap: 18px; border-top: 1px solid rgba(245,240,223,.2); }
+    .footer-inner p { margin: 0; font-size: 9px; }
+    .footer-brand { font-family: var(--serif); font-size: 17px; letter-spacing: .1em; }
+
+    .poster-dialog { width: min(94vw, 900px); max-width: none; max-height: 92vh; padding: 0; overflow: visible; border: 1px solid var(--gold); background: var(--olive-deep); color: var(--cream); }
+    .poster-dialog::backdrop { background: rgba(25,27,19,.84); backdrop-filter: blur(3px); }
+    .dialog-frame { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) 54px; align-items: center; gap: 12px; padding: 16px; }
+    .dialog-image-wrap { max-height: calc(92vh - 32px); display: grid; place-items: center; }
+    .dialog-image { max-width: 100%; max-height: calc(92vh - 32px); display: block; object-fit: contain; }
+    .dialog-tools { display: grid; justify-items: center; gap: 12px; }
+    .dialog-close, .dialog-step { width: 42px; height: 42px; display: grid; place-items: center; border: 1px solid rgba(245,240,223,.5); background: transparent; color: var(--cream); cursor: pointer; font-size: 21px; }
+    .dialog-close:hover, .dialog-step:hover { background: var(--cream); color: var(--olive-deep); }
+    .dialog-counter { color: var(--gold); font-size: 9px; font-weight: 700; letter-spacing: .08em; writing-mode: vertical-rl; }
+    .js .reveal { opacity: 0; transform: translateY(17px); transition: opacity .65s ease, transform .65s ease; }
+    .js .reveal.is-visible { opacity: 1; transform: none; }
+    @media (max-width: 820px) {
+      .header-inner, .hero-inner, .section, .practice-inner, .contact-inner, .footer-inner { width: min(calc(100% - 44px), 650px); }
+      .header-inner { min-height: 76px; }
+      .nav { gap: 18px; }
+      .nav a:not(.nav-contact) { display: none; }
+      .hero-inner { min-height: auto; padding: 59px 0 73px; grid-template-columns: 1fr .8fr; gap: 27px; }
+      .hero h1 { font-size: clamp(55px, 9vw, 77px); }
+      .hero-art { width: 100%; }
+      .intro-section { padding: 82px 0; grid-template-columns: .78fr 1fr; gap: 43px; }
+      .practice-heading { align-items: start; flex-direction: column; gap: 13px; }
+      .practice-layout { grid-template-columns: 1fr .68fr; }
+      .practice-poster { min-height: 370px; }
+      .poster-grid { grid-template-columns: repeat(2, 1fr); row-gap: 22px; }
+      .story-heading { grid-template-columns: 1fr; gap: 15px; }
+      .contact-inner { grid-template-columns: 1fr auto; gap: 24px; }
+    }
+    @media (max-width: 560px) {
+      .header-inner, .hero-inner, .section, .practice-inner, .contact-inner, .footer-inner { width: calc(100% - 36px); }
+      .header-inner { min-height: 70px; }
+      .brand img { width: 37px; height: 37px; }
+      .brand-name { font-size: 21px; }
+      .brand-caption { font-size: 8px; }
+      .nav .nav-contact { min-height: 38px; padding: 0 10px; gap: 7px; font-size: 9px; }
+      .hero-inner { padding: 53px 0 63px; grid-template-columns: 1fr; gap: 42px; }
+      .hero h1 { max-width: 440px; font-size: clamp(58px, 15vw, 76px); }
+      .hero-intro { max-width: 450px; font-size: 13px; }
+      .hero-art { width: min(100%, 410px); justify-self: center; }
+      .hero-art img { aspect-ratio: 4 / 4.65; }
+      .hero-art figcaption { right: -9px; bottom: 25px; }
+      .manifesto p { font-size: 18px; line-height: 1.4; }
+      .manifesto span { padding: 0 5px; }
+      .intro-section { padding: 75px 0 76px; grid-template-columns: 1fr; gap: 41px; }
+      .intro-image { width: min(82%, 350px); }
+      .intro-copy h2, .section-title { font-size: 49px; }
+      .principle { padding-right: 8px; }
+      .principle + .principle { padding-left: 9px; }
+      .principle strong { font-size: 8px; }
+      .principle span { font-size: 9px; }
+      .practice-section { padding: 75px 0; }
+      .practice-layout { grid-template-columns: 1fr; }
+      .practice-info { padding: 21px; }
+      .tab-list { gap: 0; }
+      .service-tab { padding: 0 8px; font-size: 10px; }
+      .service-panel { min-height: 225px; }
+      .practice-poster { min-height: 0; padding: 14px; }
+      .practice-poster img { max-height: 470px; }
+      .story-section { padding: 78px 0; }
+      .poster-grid { gap: 20px 11px; }
+      .poster-card span { font-size: 17px; }
+      .poster-card small { font-size: 8px; }
+      .contact-inner { min-height: 0; padding: 69px 0; grid-template-columns: 1fr; gap: 28px; }
+      .contact-actions { width: min(100%, 300px); }
+      .footer-inner { padding: 19px 0; flex-wrap: wrap; }
+      .footer-inner p { order: 3; width: 100%; }
+      .dialog-frame { grid-template-columns: 1fr; padding: 10px; }
+      .dialog-image-wrap { max-height: calc(92vh - 72px); }
+      .dialog-image { max-height: calc(92vh - 72px); }
+      .dialog-tools { position: absolute; top: 14px; right: 14px; display: flex; gap: 7px; }
+      .dialog-close, .dialog-step { width: 38px; height: 38px; background: rgba(66,74,43,.9); }
+      .dialog-counter { display: none; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#home" aria-label="AGAM Yoga and Wellness home">
+        <img src="851459164_17980602641922010_568188640832873162_n.jpg" alt="">
+        <span class="brand-copy"><span class="brand-name">AGAM</span><span class="brand-caption">Yoga &amp; Wellness</span></span>
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#approach">Our approach</a>
+        <a href="#practice">Practices</a>
+        <a href="#story">Our story</a>
+        <a class="nav-contact" href="#contact">Get in touch <span aria-hidden="true">↗</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="home">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-inner">
+        <div class="hero-copy reveal">
+          <div class="eyebrow">A lifelong journey toward wellbeing</div>
+          <h1 id="hero-title">Your practice.<br><em>Your pace.</em></h1>
+          <p class="hero-intro">Move better. Feel better. Live better. AGAM offers thoughtful yoga practices shaped around your individual needs, goals, and pace.</p>
+          <div class="hero-actions">
+            <a class="button" href="#practice">Explore the practices <span class="arrow" aria-hidden="true">→</span></a>
+            <a class="hero-secondary" href="https://wa.me/918825486751?text=Hello%20Amrita%2C%20I%27d%20like%20to%20know%20more%20about%20AGAM%20Yoga." target="_blank" rel="noreferrer">Message Amrita</a>
+          </div>
+          <p class="hero-promise">Your journey. Your pace. Your wellbeing.</p>
+        </div>
+        <figure class="hero-art reveal">
+          <img src="863443301_17982151679922010_3369802221884557718_n.jpg" alt="AGAM Yoga & Wellness logo in cream on an olive green background">
+          <figcaption>Begin where you are.</figcaption>
+        </figure>
+        <span class="scroll-cue" aria-hidden="true"></span>
+      </div>
+    </section>
+
+    <div class="manifesto"><p>Embracing wellness <span aria-hidden="true">·</span> Nurturing individuality <span aria-hidden="true">·</span> Evolving from within</p></div>
+
+    <section class="section intro-section" id="approach" aria-labelledby="approach-title">
+      <figure class="intro-image reveal">
+        <img src="855547032_17981037581922010_693270788124751585_n.jpg" alt="The AGAM framework: move better, feel better, live better through yoga">
+      </figure>
+      <div class="intro-copy reveal">
+        <div class="eyebrow">The AGAM framework</div>
+        <h2 id="approach-title">Beyond the mat.<br>Into everyday life.</h2>
+        <p>Yoga can be a lifelong journey. At AGAM, mindful movement supports mobility, strength, calm, and balance, with the practice shaped around the person practicing.</p>
+        <div class="principles" aria-label="The three AGAM principles">
+          <div class="principle"><strong>Move better</strong><span>Mobility, flexibility, and strength.</span></div>
+          <div class="principle"><strong>Feel better</strong><span>Calmness, relaxation, and balance.</span></div>
+          <div class="principle"><strong>Live better</strong><span>Mindful movement in everyday life.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="practice-section" id="practice" aria-labelledby="practice-title">
+      <div class="practice-inner">
+        <div class="practice-heading reveal">
+          <div><div class="eyebrow">Find your way in</div><h2 class="section-title" id="practice-title">A practice for your needs.</h2></div>
+          <p>Choose a way to begin. Amrita can help you find the practice that feels right for you.</p>
+        </div>
+        <div class="practice-layout reveal">
+          <div class="practice-info">
+            <div class="tab-list" role="tablist" aria-label="Yoga practices">
+              <button class="service-tab" id="tab-group" type="button" role="tab" aria-selected="true" aria-controls="panel-group" tabindex="0">Group yoga</button>
+              <button class="service-tab" id="tab-personal" type="button" role="tab" aria-selected="false" aria-controls="panel-personal" tabindex="-1">Personalised</button>
+              <button class="service-tab" id="tab-therapeutic" type="button" role="tab" aria-selected="false" aria-controls="panel-therapeutic" tabindex="-1">Therapeutic</button>
+            </div>
+            <div class="service-panel" id="panel-group" role="tabpanel" aria-labelledby="tab-group" tabindex="0">
+              <div class="service-kicker">Move, learn, grow together</div>
+              <h3>Group yoga</h3>
+              <p>Shared practice with room to move at your own pace. Group sessions are held on Mondays, Wednesdays, and Fridays, with morning and evening sessions.</p>
+              <div class="service-detail">Monday <span aria-hidden="true">·</span> Wednesday <span aria-hidden="true">·</span> Friday</div>
+            </div>
+            <div class="service-panel" id="panel-personal" role="tabpanel" aria-labelledby="tab-personal" tabindex="0" hidden>
+              <div class="service-kicker">A practice shaped around you</div>
+              <h3>Personalised yoga</h3>
+              <p>One-to-one sessions tailored to your individual needs, goals, and pace. Get in touch to talk through what you are looking for.</p>
+              <div class="service-detail">Private, individual sessions</div>
+            </div>
+            <div class="service-panel" id="panel-therapeutic" role="tabpanel" aria-labelledby="tab-therapeutic" tabindex="0" hidden>
+              <div class="service-kicker">Support through mindful movement</div>
+              <h3>Therapeutic yoga</h3>
+              <p>Individualised yogic practices to support health and wellbeing. Contact Amrita to discuss whether this approach may suit your needs.</p>
+              <div class="service-detail">One-to-one sessions</div>
+            </div>
+            <a class="button practice-book" href="https://wa.me/918825486751?text=Hello%20Amrita%2C%20I%27m%20interested%20in%20a%20group%20yoga%20session." target="_blank" rel="noreferrer">Ask about a session <span class="arrow" aria-hidden="true">↗</span></a>
+          </div>
+          <div class="practice-poster">
+            <img src="858672847_17981381342922010_1806025584795346164_n.jpg" alt="AGAM Yoga & Wellness session information and contact details" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section story-section" id="story" aria-labelledby="story-title">
+      <div class="story-heading reveal">
+        <div><div class="eyebrow">A little more about AGAM</div><h2 class="section-title" id="story-title">Wellbeing, from within.</h2></div>
+        <p>Explore the ideas behind the practice. Select a piece to open it and move through the collection.</p>
+      </div>
+      <div class="poster-grid">
+        <button class="poster-card reveal" type="button" data-poster="0" aria-label="Open AGAM belief poster">
+          <img src="852947788_17980609049922010_5936015892511321588_n.jpg" alt="AGAM belief: embracing wellness, nurturing individuality, evolving from within" loading="lazy">
+          <span>Our belief</span><small>Embracing wellness</small>
+        </button>
+        <button class="poster-card reveal" type="button" data-poster="1" aria-label="Open AGAM vision poster">
+          <img src="856375304_17980646108922010_2137567384974275344_n.jpg" alt="AGAM vision: beyond the mat, into everyday life" loading="lazy">
+          <span>Our vision</span><small>Beyond the mat</small>
+        </button>
+        <button class="poster-card reveal" type="button" data-poster="2" aria-label="Open AGAM promise poster">
+          <img src="857773246_17980788467922010_3417493708148119346_n.jpg" alt="AGAM promise: guide with care, support with purpose, nurture health and mindfulness" loading="lazy">
+          <span>Our promise</span><small>To guide with care</small>
+        </button>
+        <button class="poster-card reveal" type="button" data-poster="3" aria-label="Open AGAM practice options poster">
+          <img src="859070367_17981119373922010_7886103443417399635_n.jpg" alt="AGAM practice options: group yoga, personalised yoga, and therapeutic yoga" loading="lazy">
+          <span>Your practice</span><small>Your needs, your pace</small>
+        </button>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact" aria-labelledby="contact-title">
+      <div class="contact-inner">
+        <div class="reveal">
+          <div class="eyebrow">Your next step</div>
+          <h2 id="contact-title">Start a conversation.</h2>
+          <p>Ask about group classes, one-to-one sessions, or finding the right place to begin.</p>
+        </div>
+        <div class="contact-actions reveal">
+          <a class="button" href="tel:+918825486751">Call Amrita <span class="arrow" aria-hidden="true">↗</span></a>
+          <a class="instagram-link" href="https://instagram.com/agam_yogawellness" target="_blank" rel="noreferrer">Follow @agam_yogawellness</a>
+        </div>
+      </div>
+      <footer>
+        <div class="footer-inner"><span class="footer-brand">AGAM</span><p>Yoga &amp; Wellness <span aria-hidden="true">·</span> Your journey, your pace, your wellbeing</p><p>© <span id="year"></span> AGAM</p></div>
+      </footer>
+    </section>
+  </main>
+
+  <dialog class="poster-dialog" id="poster-dialog" aria-label="AGAM poster viewer">
+    <div class="dialog-frame">
+      <div class="dialog-image-wrap"><img class="dialog-image" id="dialog-image" alt=""></div>
+      <div class="dialog-tools">
+        <button class="dialog-close" id="dialog-close" type="button" aria-label="Close poster viewer">×</button>
+        <button class="dialog-step" id="dialog-next" type="button" aria-label="Next poster">→</button>
+        <span class="dialog-counter" id="dialog-counter" aria-live="polite"></span>
+        <button class="dialog-step" id="dialog-previous" type="button" aria-label="Previous poster">←</button>
+      </div>
+    </div>
+  </dialog>
+
+  <script>
+    document.documentElement.classList.add('js');
+
+    const tabs = Array.from(document.querySelectorAll('.service-tab'));
+    const panels = Array.from(document.querySelectorAll('.service-panel'));
+    const bookingLink = document.querySelector('.practice-book');
+    const bookingMessages = {
+      'tab-group': 'group yoga',
+      'tab-personal': 'a personalised yoga session',
+      'tab-therapeutic': 'a therapeutic yoga session'
+    };
+
+    function selectPractice(tab, focus = false) {
+      tabs.forEach((item) => {
+        const selected = item === tab;
+        item.setAttribute('aria-selected', String(selected));
+        item.tabIndex = selected ? 0 : -1;
+      });
+      panels.forEach((panel) => {
+        panel.hidden = panel.id !== tab.getAttribute('aria-controls');
+      });
+      const message = `Hello Amrita, I'm interested in ${bookingMessages[tab.id]}.`;
+      bookingLink.href = `https://wa.me/918825486751?text=${encodeURIComponent(message)}`;
+      if (focus) tab.focus();
+    }
+
+    tabs.forEach((tab, index) => {
+      tab.addEventListener('click', () => selectPractice(tab));
+      tab.addEventListener('keydown', (event) => {
+        if (event.key !== 'ArrowRight' && event.key !== 'ArrowLeft' && event.key !== 'Home' && event.key !== 'End') return;
+        event.preventDefault();
+        const nextIndex = event.key === 'Home' ? 0 : event.key === 'End' ? tabs.length - 1 : (index + (event.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length;
+        selectPractice(tabs[nextIndex], true);
+      });
+    });
+
+    const posters = [
+      { src: '852947788_17980609049922010_5936015892511321588_n.jpg', alt: 'AGAM belief: embracing wellness, nurturing individuality, evolving from within' },
+      { src: '856375304_17980646108922010_2137567384974275344_n.jpg', alt: 'AGAM vision: beyond the mat, into everyday life' },
+      { src: '857773246_17980788467922010_3417493708148119346_n.jpg', alt: 'AGAM promise: to guide with care, support with purpose, and nurture health and mindfulness' },
+      { src: '859070367_17981119373922010_7886103443417399635_n.jpg', alt: 'AGAM practice options: group yoga, personalised yoga, and therapeutic yoga' }
+    ];
+    const dialog = document.querySelector('#poster-dialog');
+    const dialogImage = document.querySelector('#dialog-image');
+    const dialogCounter = document.querySelector('#dialog-counter');
+    let activePoster = 0;
+
+    function showPoster(index) {
+      activePoster = (index + posters.length) % posters.length;
+      dialogImage.src = posters[activePoster].src;
+      dialogImage.alt = posters[activePoster].alt;
+      dialogCounter.textContent = `${String(activePoster + 1).padStart(2, '0')} / ${String(posters.length).padStart(2, '0')}`;
+    }
+
+    document.querySelectorAll('[data-poster]').forEach((button) => {
+      button.addEventListener('click', () => {
+        showPoster(Number(button.dataset.poster));
+        dialog.showModal();
+        document.querySelector('#dialog-close').focus();
+      });
+    });
+    document.querySelector('#dialog-close').addEventListener('click', () => dialog.close());
+    document.querySelector('#dialog-next').addEventListener('click', () => showPoster(activePoster + 1));
+    document.querySelector('#dialog-previous').addEventListener('click', () => showPoster(activePoster - 1));
+    dialog.addEventListener('click', (event) => {
+      if (event.target === dialog) dialog.close();
+    });
+    document.addEventListener('keydown', (event) => {
+      if (!dialog.open) return;
+      if (event.key === 'ArrowRight') showPoster(activePoster + 1);
+      if (event.key === 'ArrowLeft') showPoster(activePoster - 1);
+    });
+
+    document.querySelector('#year').textContent = new Date().getFullYear();
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries, currentObserver) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('is-visible');
+          currentObserver.unobserve(entry.target);
+        });
+      }, { threshold: 0.12 });
+      document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
+    } else {
+      document.querySelectorAll('.reveal').forEach((element) => element.classList.add('is-visible'));
+    }
+  </script>
+</body>
+</html>
